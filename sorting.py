@@ -23,3 +23,58 @@ def selection_sorting(arr):
                 arr[j] , arr[index] = arr[index] , arr[j]
                 print(arr)
     return arr
+
+# now divid and conqure by marge sort
+# first we divid the list then 
+# conqure and make the final result 
+
+def marge_sort(arr):
+    if len(arr) <=1 :
+        return arr
+
+    mid = len(arr) // 2
+
+    left  = arr[:mid]
+    right = arr[mid:]
+
+    left = marge_sort(left)
+    right = marge_sort(right)
+
+    result = []
+    i  , j = 0,0
+    while i < len(left)  and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
