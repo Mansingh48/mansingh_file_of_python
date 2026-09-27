@@ -67,4 +67,41 @@ arr2= [10,20,30,40,50]
 
 """ work with sort arr  only """
 
+def binary_serching(arr):  
+    print(arr)
+    target = int(input("enter the number for serching   :   "))
+    low = 0
+    high = len(arr) -1 
+  
+    
+    while low < high:
+        mid = (low + high )//2
+        if arr[mid] == target:
+            print("element found at index " , mid)
+            break
+        elif arr[mid] < target:
+            low = mid +1
+            
+        else:
+            high = mid -1
+    
+# print(binary_serching(arr2))
+
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    left =[]
+    right = []
+    pivot  = arr[-1]
+
+    for x in arr[:-1]:
+        if pivot >= x:
+            left.append(x)
+        else:
+            right.append(x)
+    return quick_sort(left) + [pivot] + quick_sort(right)
+ 
+print(quick_sort(arr))
+
 
